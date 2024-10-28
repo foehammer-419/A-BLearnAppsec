@@ -110,4 +110,20 @@ Security Headers: Content Security Policy (CSP)
 - Note it can be time consuming/tedious to track all of these things.
 - Some key options/settings are: default-src (default setting/catch all), script-src(list of all domains where scripts are located or the URL of the scripts that are allowed to run on the site), script-nonce (one time string for specific script call), report-uri (CSP makes a report about what it has blocked and other info).
 - There's actually a number of security headers that provide reports such as XSS-Protection, Expect-CT, Public-Key-Pins, etc...
-- 
+
+
+X-Frame-Options
+- Header helps protect against clickjacking to prevent keylogging.
+- Options include: x-frame-options: SAMEORIGIN (to allow frames within only your own domain) or x-frame-options: DENY (denies all frames from anywhere)
+
+X-Content-Type-Options
+- Browsers like to try to "guess" the content/media type used in a web app, this setting allows you to specify that the app should only rely on the media type explicitly stated in the application programming
+- X-Content-Type-Options: nosniff
+
+Referrer-Policy
+- Referrers are passed so that websites know where users are visiting from.  The referrer policy can be set to allow/deny only pass the doman and not a specific site, or not pass any value at all.
+- Settings include: Referrer-Policy: origin (only passes protocol and domain info) Referrer-policy: strict-origin-when-cross-origin (only sends protocol/domain if LEAVING domain, within domain passes entire path), Referrer-Policy: no-referrer (No value in referrer field)
+
+Strict Transport Security
+- This header forces the connection to be HTTPS
+- Options include: Strict-Transport-Security: max-age=31,536,000
